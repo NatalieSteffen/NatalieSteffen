@@ -2,24 +2,24 @@ body {
   background-color: white;
 }
 h1 {
-  color: black;
-  font-size: 200%;
-  text-align: center;
+	color: black;
+	font-size: 200%;
+	text-align: center;
 }
 h2 {
-  color: black;
-  font-size: 150%;
-    text-align: center;
+	color: black;
+	font-size: 150%;
+	text-align: center;
 }
 p {
-  color: black;
+	color: black;
 }
 
 div.imageAndTextBlock {
-    display: flex;
+	display: flex;
 }
 img {
-    float: left;
+	float: left;
 	margin: 5px;
 	max-width: 300px;
 }

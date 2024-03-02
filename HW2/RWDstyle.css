@@ -100,7 +100,7 @@
 	}
 	
 	div#header{
-	padding:5% 0.1rem;
+	padding:0% 0.1rem;
 	}
 	ul.navigation {
 		margin-top:1rem;
@@ -110,15 +110,15 @@
 	}
 	div.content{
 		margin:15px auto;
-		width:100%; /* do I have padding somewhere?? 99 and 100% causes horizontal scrolling, WHY?? */
+		width:100%; 
 	}				
 	div.col-right{
-		padding:0 0.1rem;
+		padding:0 0rem;
 		width:100%
 		}
 		
 	div.sidebar-left{
-		padding:0 0.1rem;
+		padding:0 0rem;
 		//width:100%;
 		}
 		

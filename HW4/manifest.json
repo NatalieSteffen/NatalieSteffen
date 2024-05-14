@@ -1,0 +1,21 @@
+{
+"short_name": "HW 4",
+"name": "Homework 4",
+"icons": [
+{
+"src": "icon.png",
+"type": "image/png",
+"sizes": "48x48"
+},
+{
+"src": "icon2x.png",
+"type": "image/png",
+"sizes": "96x96"
+},
+{
+"src": "icon4x.png",
+"type": "image/png",
+"sizes": "192x192"
+}
+],
+"start_url": "index.html?launcher=true"

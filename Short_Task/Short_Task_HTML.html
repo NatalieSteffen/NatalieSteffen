@@ -21,7 +21,7 @@
                 <li>Open Source</li>
                 <li>Very Easy to Use</li>
             </ul>
-            <p>Learn more about Apache Cordova on the <a href="https://cordova.apache.org/">Apache Cordova website</a> (cordova.apache.org).</p>
+		<p>Learn more about Apache Cordova on the <a href="https://cordova.apache.org/">Apache Cordova website</a> (cordova.apache.org).</p>
         </section>
         <section class="framework" id="flutter">
             <h2>Flutter</h2>
@@ -32,7 +32,7 @@
                 <li>Fast iterative development</li>
                 <li><a href="https://docs.flutter.dev/ui/widgets">Customizable and Extensible through widgets</a> (docs.flutter.dev/ui/widgets)</li>
             </ul>
-			<p>Learn more about Flutter on the <a href="https://flutter.dev/">Flutter homepage</a> (flutter.dev).</p>
+		<p>Learn more about Flutter on the <a href="https://flutter.dev/">Flutter homepage</a> (flutter.dev).</p>
         </section>
         <section class="framework" id="react-native">
             <h2>React Native</h2>
@@ -44,19 +44,23 @@
                 <li>Reusable components</li>
                 <li><a href="https://reactnative.directory/">Many third party plugins</a> (reactnative.directory/)</li>
             </ul>
-			<p>Learn more about React Native on the <a href="https://reactnative.dev/">React Native homepage</a> (reactnative.dev).</p>
+		<p>Learn more about React Native on the <a href="https://reactnative.dev/">React Native homepage</a> (reactnative.dev).</p>
         </section>
     </main>
     <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function(error) {
-                    console.log('ServiceWorker registration failed: ', error);
-                });
-            });
-        }
+	    if (navigator.serviceWorker) {
+		navigator.serviceWorker.register('./service-worker.js', {scope: './about'})
+		.then(function (registration) {
+			// Registration of service worker ok
+			console.log('Registration of service worker successful with scope: ', registration.scope);
+		}).catch(function(err) {
+			// Registration of service worker failed
+			console.log('Registration of service worker failed with error: ', err);
+		})
+	    } 
+	    else {
+		    console.log('Service Worker is not supported by this browser');
+	    }
     </script>
 </body>
 </html>

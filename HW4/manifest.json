@@ -1,6 +1,9 @@
 {
 "short_name": "HW 4",
 "name": "Homework 4",
+"display": "standalone",
+"background_color": "#ffffff",
+"theme_color": "#007bff",
 "icons": [
 {
 "src": "/icon.png",
@@ -16,6 +19,7 @@
 "src": "/icon4x.png",
 "type": "image/png",
 "sizes": "192x192"
+"purpose": "any"
 }
 ],
 "start_url": "https://nataliesteffen.github.io/NatalieSteffen/HW4/index.html"

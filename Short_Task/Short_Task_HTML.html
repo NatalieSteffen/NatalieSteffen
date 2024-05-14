@@ -49,7 +49,7 @@
     </main>
     <script>
 	    if (navigator.serviceWorker) {
-		navigator.serviceWorker.register('https://nataliesteffen.github.io/NatalieSteffen/Short_Task/service-worker.js', {scope: './'})
+		navigator.serviceWorker.register('https://nataliesteffen.github.io/NatalieSteffen/Short_Task/service-worker.js', {scope: './Short_Task_HTML.html'})
 		.then(function (registration) {
 			// Registration of service worker ok
 			console.log('Registration of service worker successful with scope: ', registration.scope);

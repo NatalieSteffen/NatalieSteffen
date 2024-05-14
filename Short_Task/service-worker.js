@@ -1,35 +1,31 @@
-const CACHE_NAME = 'v1';
-const CACHE_ASSETS = [
-    '/',
-    '/index.html',
-    '/styles.css',
+var CACHE_VERSION = 'myapp-v1';
+var CACHE_FILES = [
+    'index.html',
+    'styles.css'
 ];
 
-// Install Event
-self.addEventListener('install', (event) => {
-    console.log('Service Worker: Installing...');
-
+self.addEventListener('install', event => {
+    console.log('SW installed');
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('Service Worker: Caching Files...');
-                return cache.addAll(CACHE_ASSETS);
-            })
-            .then(() => self.skipWaiting())
+        caches
+        .open(CACHE_VERSION)
+        .then(cache => {
+            console.log('SW caching files');
+            cache.addAll(CACHE_FILES)
+        })
+        .then(() => self.skipWaiting())
     );
 });
 
-// Activate Event
-self.addEventListener('activate', (event) => {
-    console.log('Service Worker: Activated');
-    // Remove unwanted caches
+self.addEventListener('activate', event => {
+    console.log('SW activated');
     event.waitUntil(
-        caches.keys().then((cacheNames) => {
+        caches.keys().then(keyNames => {
             return Promise.all(
-                cacheNames.map((cache) => {
-                    if (cache !== CACHE_NAME) {
-                        console.log('Service Worker: Clearing Old Cache');
-                        return caches.delete(cache);
+                keyNames.map(key => {
+                    if(key !== CACHE_VERSION) {
+                        console.log('SW clearing old caches');
+                        return caches.delete(key);
                     }
                 })
             );
@@ -37,18 +33,9 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-// Fetch Event
-self.addEventListener('fetch', (event) => {
-    console.log('Service Worker: Fetching');
+self.addEventListener('fetch', event => {
+    console.log('SW fetching');
     event.respondWith(
-        fetch(event.request)
-            .then((response) => {
-                const resClone = response.clone();
-                caches.open(CACHE_NAME)
-                    .then((cache) => {
-                        cache.put(event.request, resClone);
-                    });
-                return response;
-            }).catch((err) => caches.match(event.request).then((response) => response))
+        fetch(event.request).catch(() => caches.match(event.request))
     );
 });
